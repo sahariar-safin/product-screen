@@ -1,13 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
+import { StatusBar } from 'react-native';
 import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import BottomBar from './componant/BottomBer/BottomBer';
+import TopBer from './componant/TopBer/TopBer';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <TopBer></TopBer>
+      <NavigationContainer style={styles.bottomNav}>
+        <BottomBar></BottomBar>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 
@@ -18,4 +24,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  searchbar: {
+    backgroundColor: '#fff',
+  },
+  bottomNav: {
+    border: '3px solid black',
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15
+  }
 });
